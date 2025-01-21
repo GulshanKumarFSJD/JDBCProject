@@ -1,0 +1,9 @@
+# Ignore compiled class files
+*.class
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Logs
+*.log
