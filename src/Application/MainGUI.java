@@ -1,36 +1,34 @@
 package Application;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-
 
 public class MainGUI {
-    public static void main(String[] args) {
-        // Create the main frame
-        JFrame frame = new JFrame("Student Management System");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public MainGUI() {
+        JFrame frame = new JFrame("Main Application");
         frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
 
-        // Create buttons
-        JButton addButton = new JButton("Add Student");
-        JButton viewButton = new JButton("View Students");
-        JButton updateButton = new JButton("Update Student");
-        JButton deleteButton = new JButton("Delete Student");
+        JButton adminLoginButton = new JButton("Admin Login");
+        adminLoginButton.setBounds(120, 50, 150, 30);
+        adminLoginButton.addActionListener(e -> new AdminLogin());
+        frame.add(adminLoginButton);
 
-        // Add Action Listeners to buttons
-        addButton.addActionListener((ActionEvent e) -> new AddStudentGUI());
-        viewButton.addActionListener((ActionEvent e) -> new ViewStudentsGUI());
-        updateButton.addActionListener((ActionEvent e) -> new UpdateStudentGUI());
-        deleteButton.addActionListener((ActionEvent e) -> new DeleteStudentGUI());
+        JButton userLoginButton = new JButton("User Login");
+        userLoginButton.setBounds(120, 100, 150, 30);
+        userLoginButton.addActionListener(e -> new UserLogin());
+        frame.add(userLoginButton);
 
-        // Layout for buttons
-        frame.setLayout(new GridLayout(4, 1, 10, 10));
-        frame.add(addButton);
-        frame.add(viewButton);
-        frame.add(updateButton);
-        frame.add(deleteButton);
-        frame.setLocationRelativeTo(null);
+        JButton registerButton = new JButton("Register");
+        registerButton.setBounds(120, 150, 150, 30);
+        registerButton.addActionListener(e -> new RegisterUser());
+        frame.add(registerButton);
+
+        frame.setLocationRelativeTo(null); // Center the window
         frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new MainGUI();
     }
 }
